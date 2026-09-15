@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Jogo educativo da velha sobre Absolutismo e Formação dos Estados Nacionais"
+    >
+
+    <title>
+        Trono & Estado
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                TE
+            </div>
+
+
+            <div class="brand-text">
+
+                <strong>
+                    Trono & Estado
+                </strong>
+
+                <span>
+                    Absolutismo e Formação dos Estados Nacionais
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="themeToggle"
+            class="icon-button"
+            type="button"
+            aria-label="Alternar tema"
+        >
+            ☾
+        </button>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =====================================================
+             TELA INICIAL
+        ====================================================== -->
+
+        <section
+            id="startScreen"
+            class="start-screen"
+        >
+
+            <div class="start-card">
+
+                <span class="eyebrow">
+                    Jogo educativo
+                </span>
+
+
+                <h1>
+                    Trono
+                    <span>& Estado</span>
+                </h1>
+
+
+                <p class="start-description">
+
+                    Um jogo da velha sobre Absolutismo
+                    e Formação dos Estados Nacionais.
+
+                    Escolha uma casa, responda corretamente
+                    e conquiste sua posição no tabuleiro.
+
+                </p>
+
+
+
+                <div class="players-preview">
+
+
+                    <article class="preview-player">
+
+                        <div class="preview-symbol">
+                            X
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Jogador 1
+                            </span>
+
+                            <strong>
+                                Time X
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <div class="versus">
+                        ×
+                    </div>
+
+
+                    <article class="preview-player">
+
+                        <div class="preview-symbol outline">
+                            O
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Jogador 2
+                            </span>
+
+                            <strong>
+                                Time O
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+
+                <div class="rule-box">
+
+                    <strong>
+                        Regra principal
+                    </strong>
+
+                    <p>
+                        A marca somente será colocada se o jogador
+                        acertar a pergunta histórica.
+                    </p>
+
+                </div>
+
+
+
+                <button
+                    id="startButton"
+                    class="primary-button"
+                    type="button"
+                >
+                    Iniciar jogo
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             JOGO
+        ====================================================== -->
+
+        <section
+            id="gameScreen"
+            class="game-screen hidden"
+        >
+
+            <div class="game-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        Disputa histórica
+                    </span>
+
+                    <h2>
+                        Trono & Estado
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="gameStatus"
+                    class="game-status"
+                >
+                    Partida em andamento
+                </div>
+
+            </div>
+
+
+
+            <div class="game-layout">
+
+
+                <!-- =================================================
+                     CENTRO
+                ================================================== -->
+
+                <div class="game-center">
+
+
+                    <!-- TURNO -->
+
+                    <div class="turn-panel">
+
+                        <span>
+                            Vez de
+                        </span>
+
+
+                        <div class="turn-player">
+
+                            <div
+                                id="turnSymbol"
+                                class="turn-symbol"
+                            >
+                                X
+                            </div>
+
+
+                            <strong id="turnName">
+                                Jogador X
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- JOGO DA VELHA -->
+
+                    <div class="board-wrapper">
+
+                        <div
+                            id="ticTacToeBoard"
+                            class="tic-tac-toe-board"
+                            aria-label="Tabuleiro de jogo da velha"
+                        >
+
+                            <button
+                                class="board-cell"
+                                data-index="0"
+                                type="button"
+                                aria-label="Casa 1"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="1"
+                                type="button"
+                                aria-label="Casa 2"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="2"
+                                type="button"
+                                aria-label="Casa 3"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="3"
+                                type="button"
+                                aria-label="Casa 4"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="4"
+                                type="button"
+                                aria-label="Casa 5"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="5"
+                                type="button"
+                                aria-label="Casa 6"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="6"
+                                type="button"
+                                aria-label="Casa 7"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="7"
+                                type="button"
+                                aria-label="Casa 8"
+                            ></button>
+
+                            <button
+                                class="board-cell"
+                                data-index="8"
+                                type="button"
+                                aria-label="Casa 9"
+                            ></button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <p class="board-help">
+
+                        Escolha uma casa vazia para receber
+                        uma pergunta.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PAINEL LATERAL
+                ================================================== -->
+
+                <aside class="side-panel">
+
+
+                    <div class="panel-label">
+                        Partida
+                    </div>
+
+
+
+                    <div class="score-grid">
+
+
+                        <article
+                            id="playerXCard"
+                            class="player-stat active"
+                        >
+
+                            <div class="small-symbol dark-symbol">
+                                X
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Jogador X
+                                </span>
+
+                                <strong id="xCorrect">
+                                    0
+                                </strong>
+
+                                <small>
+                                    respostas corretas
+                                </small>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article
+                            id="playerOCard"
+                            class="player-stat"
+                        >
+
+                            <div class="small-symbol outline-symbol">
+                                O
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Jogador O
+                                </span>
+
+                                <strong id="oCorrect">
+                                    0
+                                </strong>
+
+                                <small>
+                                    respostas corretas
+                                </small>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+
+                    <div class="panel-section">
+
+                        <div class="section-heading">
+                            Como jogar
+                        </div>
+
+
+                        <div class="rules">
+
+                            <p>
+                                Escolha uma casa vazia.
+                            </p>
+
+                            <p>
+                                Responda à pergunta histórica.
+                            </p>
+
+                            <p>
+                                Se acertar, sua marca ocupa a casa.
+                            </p>
+
+                            <p>
+                                Se errar, a casa permanece livre.
+                            </p>
+
+                            <p>
+                                Depois da resposta, o turno passa
+                                ao adversário.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="panel-section">
+
+                        <div class="section-heading">
+                            Assuntos
+                        </div>
+
+
+                        <div class="topics">
+
+                            <span>
+                                Absolutismo
+                            </span>
+
+                            <span>
+                                Estados Nacionais
+                            </span>
+
+                            <span>
+                                Luís XIV
+                            </span>
+
+                            <span>
+                                Maquiavel
+                            </span>
+
+                            <span>
+                                Thomas Hobbes
+                            </span>
+
+                            <span>
+                                Centralização
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <button
+                        id="restartButton"
+                        class="secondary-button"
+                        type="button"
+                    >
+                        Reiniciar partida
+                    </button>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         MODAL DA PERGUNTA
+    ====================================================== -->
+
+    <div
+        id="questionModal"
+        class="modal-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="modal question-modal">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        Desafio histórico
+                    </span>
+
+                    <h2 id="questionPlayer">
+                        Jogador X
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="modalPlayerSymbol"
+                    class="modal-symbol"
+                >
+                    X
+                </div>
+
+            </div>
+
+
+
+            <span
+                id="questionCategory"
+                class="question-category"
+            >
+                Absolutismo
+            </span>
+
+
+
+            <h3
+                id="questionText"
+                class="question-text"
+            >
+                Pergunta
+            </h3>
+
+
+
+            <div
+                id="questionOptions"
+                class="question-options"
+            ></div>
+
+
+
+            <div
+                id="answerFeedback"
+                class="answer-feedback hidden"
+            >
+
+                <strong id="feedbackTitle">
+                Resposta correta
+                </strong>
+
+
+                <p id="feedbackText">
+                </p>
+
+            </div>
+
+
+
+            <button
+                id="continueQuestionButton"
+                class="primary-button hidden"
+                type="button"
+            >
+                Continuar partida
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VENCEDOR
+    ====================================================== -->
+
+    <div
+        id="winnerModal"
+        class="modal-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="modal result-modal">
+
+
+            <div
+                id="winnerSymbol"
+                class="winner-symbol"
+            >
+                X
+            </div>
+
+
+            <span class="eyebrow">
+                Fim da partida
+            </span>
+
+
+            <h2 id="winnerTitle">
+                Jogador X venceu
+            </h2>
+
+
+            <p id="winnerDescription">
+                Três casas foram conquistadas em sequência.
+            </p>
+
+
+            <button
+                id="playAgainButton"
+                class="primary-button"
+                type="button"
+            >
+                Jogar novamente
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         VELHA
+    ====================================================== -->
+
+    <div
+        id="drawModal"
+        class="modal-overlay hidden"
+        role="dialog"
+        aria-modal="true"
+    >
+
+        <div class="modal result-modal">
+
+
+            <div class="winner-symbol draw-symbol">
+                =
+            </div>
+
+
+            <span class="eyebrow">
+                Fim da partida
+            </span>
+
+
+            <h2>
+                Deu velha
+            </h2>
+
+
+            <p>
+                Todas as casas foram ocupadas,
+                mas nenhum jogador conseguiu formar
+                uma sequência de três símbolos.
+            </p>
+
+
+            <button
+                id="drawPlayAgainButton"
+                class="primary-button"
+                type="button"
+            >
+                Jogar novamente
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
